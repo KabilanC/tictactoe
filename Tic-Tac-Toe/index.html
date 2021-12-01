@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+</head>
+<style>
+    .head{
+    text-align: center;
+    color: rgb(29, 24, 34);
+    padding-bottom: 20;
+    background-color: rgb(238, 51, 238);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    #p{
+        text-align: center;
+        font-size: 20px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: cornflowerblue;
+    }
+    #popup{
+      align-items: center;
+      color: cornflowerblue;
+    }
+</style>
+<body>
+    <h1 class="head">Tic Tac Toc</h1>
+    <p id="p">Lets Play The Game </p>
+    <button id="popup">Play Again</button>
+    <script>
+        var currentplayer = "X";
+        var popup = "Restart"
+        var board = document.createElement('div');
+        board.style.width = "300px";
+        
+        board.style.display = "flex"
+    
+        board.style.flexDirection = "row";
+        board.style.flexWrap = "wrap";
+        board.style.padding = "100px";
+        board.style.paddingLeft = "500px"
+        board.style.paddingRight = "300px"
+        board.style.border = "5px"
+        board.style.margin = "10px"
+        board.style.position =  "absolute";
+        board.style.fontSize = "100px";
+        board.style.fontFamily = "generic-family|initial|inherit";
+        
+        var popup = document.createElement('button');
+        popup.style.padding = "5px";
+        popup.style.border = "1px";
+        popup.style.position = "reletive"
+        document.body.appendChild(popup);
+
+
+        for (let index = 1; index <= 9;index++) {
+            var box = document.createElement('div');
+            box.style.height = "100px";
+            box.style.width = "32%";
+            box.setAttribute("id",index)
+            box.style.border = "2px solid black"
+            box.style.backgroundColor = "#ffff";
+            
+            box.addEventListener('click', function(){
+                if(this.innerText.length == 0){
+                    if(currentplayer == "X"){
+                        this.innerText = currentplayer;
+                        currentplayer = "O";
+
+                    }else{
+                        this.innerText = currentplayer;
+                        currentplayer = "X";
+                    }
+                }
+            });
+
+
+            board.appendChild(box);
+        }
+
+        document.body.appendChild(board)
+    </script>
+</body>
+</html>
